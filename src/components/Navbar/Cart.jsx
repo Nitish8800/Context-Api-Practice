@@ -1,7 +1,8 @@
 import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 export const Cart = () => {
-  const value = useContext();
+  const value = useContext(CartContext);
 
   return (
     <nav>
