@@ -1,7 +1,16 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext(); //create box
 
 export const CartContextProvider = ({ children }) => {
-  return <CartContext.Provider value={0}>{children}</CartContext.Provider>;
+  const [cart, setCart] = useState(12);
+  const handleChange = (value) => {
+    setCart(cart + value);
+  };
+
+  return (
+    <CartContext.Provider value={{ cart, handleChange }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
